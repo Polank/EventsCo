@@ -33,6 +33,31 @@ class Usuario
      */
     private $vehiculo;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nombre;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $apellidos;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $username;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $correo;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $contrasena;
+
     public function __construct()
     {
         $this->usuarioGrupoEventos = new ArrayCollection();
@@ -115,6 +140,66 @@ class Usuario
         if ($vehiculo->getPropietario() !== $newPropietario) {
             $vehiculo->setPropietario($newPropietario);
         }
+
+        return $this;
+    }
+
+    public function getNombre(): ?string
+    {
+        return $this->nombre;
+    }
+
+    public function setNombre(string $nombre): self
+    {
+        $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    public function getApellidos(): ?string
+    {
+        return $this->apellidos;
+    }
+
+    public function setApellidos(string $apellidos): self
+    {
+        $this->apellidos = $apellidos;
+
+        return $this;
+    }
+
+    public function getUsername(): ?string
+    {
+        return $this->username;
+    }
+
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    public function getCorreo(): ?string
+    {
+        return $this->correo;
+    }
+
+    public function setCorreo(string $correo): self
+    {
+        $this->correo = $correo;
+
+        return $this;
+    }
+
+    public function getContrasena(): ?string
+    {
+        return $this->contrasena;
+    }
+
+    public function setContrasena(string $contrasena): self
+    {
+        $this->contrasena = $contrasena;
 
         return $this;
     }

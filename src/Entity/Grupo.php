@@ -34,6 +34,11 @@ class Grupo
      */
     private $admin;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nombre;
+
     public function __construct()
     {
         $this->usuarioGrupoEventos = new ArrayCollection();
@@ -112,6 +117,18 @@ class Grupo
     public function setAdmin(?Usuario $admin): self
     {
         $this->admin = $admin;
+
+        return $this;
+    }
+
+    public function getNombre(): ?string
+    {
+        return $this->nombre;
+    }
+
+    public function setNombre(string $nombre): self
+    {
+        $this->nombre = $nombre;
 
         return $this;
     }
