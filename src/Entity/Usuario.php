@@ -203,4 +203,21 @@ class Usuario
 
         return $this;
     }
+      /**
+     * @return Collection|Vehiculo[]
+     */
+    public function getVehiculos(): Collection
+    {
+        return $this->Vehiculo;
+    }
+
+    public function addVehiculo(Vehiculo $vehiculo): self
+    {
+        if (!$this->vehiculos->contains($vehiculo)) {
+            $this->vehiculos[] = $vehiculo;
+            $vehiculo->setVehiculo($this);
+        }
+
+        return $this;
+    }
 }
